@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="background">
+  <div class="overlay">
+    <h1>Novo Usuário</h1>
+    <input type="text" id="novoUsuario" placeholder="Novo usuário" />
+    <input type="password" id="novaSenha" placeholder="Nova senha" />
+    <button onclick="criarConta()">Criar Conta</button>
+    <p id="mensagem" class="mensagem"></p>
+  </div>
+</div>
+<script>
+function criarConta() {
+    const usuario = document.getElementById("novoUsuario").value;
+    const senha = document.getElementById("novaSenha").value;
+    const mensagem = document.getElementById("mensagem");
+
+    if (!usuario || !senha) {
+        mensagem.textContent = "Preencha todos os campos.";
+        return;
+    }
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+    if (usuarios[usuario]) {
+        mensagem.textContent = "Usuário já existe.";
+        return;
+    }
+
+    usuarios[usuario] = senha;
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    mensagem.style.color = "lightgreen";
+    mensagem.textContent = "Conta criada com sucesso!";
+
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 2000);
+}
+</script>
+</body>
+</html>
