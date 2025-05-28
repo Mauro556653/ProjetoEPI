@@ -1,37 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Gestão de EPIs e Ferramentas</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - SAMAE</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="background">
-    <div class="overlay">
-      <h1>Login</h1>
-      <input type="text" id="usuario" placeholder="Usuário" />
+  <div class="login-container">
+    <div class="login-box">
+     <img src="img/samae.png" alt="Logo SAMAE" class="logo" />
+      <h2>SAMAE</h2>
+      <input type="text" id="usuario" placeholder="Usuário (CPF)" />
       <input type="password" id="senha" placeholder="Senha" />
-      <button onclick="login()">Entrar</button>
-      <p><a href="cadastro.html" style="color:lightblue">Criar nova conta</a></p>
-      <p id="mensagem" class="mensagem"></p>
+      <button onclick="login()">ENTRAR</button>
+      <p id="erro" class="erro-msg"></p>
     </div>
   </div>
 
-  <script>
-    function login() {
-      var usuario = document.getElementById("usuario").value;
-      var senha = document.getElementById("senha").value;
-      var mensagem = document.getElementById("mensagem");
-
-      if (usuario === "admin" && senha === "123") {
-        window.location.href = "formulario.html";
-      } else {
-        mensagem.style.color = "yellow";
-        mensagem.textContent = "Usuário ou senha incorretos.";
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
